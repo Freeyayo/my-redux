@@ -14,15 +14,6 @@ const store = createStore(rootReducer, applyMiddleware(sagaMiddleware))
 
 sagaMiddleware.run(helloSaga)
 
-function reducer(state = 0, action){
-  switch(action.type){
-    case "ADD":
-      return state + 1;
-    default:
-      return state;
-  }
-}
-
 function App() {
   return (
       <Provider store={store}>

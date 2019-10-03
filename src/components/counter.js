@@ -1,9 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { BUTTON_STYLE_PRI, BUTTON_STYLE_SEC, BUTTON_STYLE_PRI_ASYNC, FONT_STYLE } from '../styles/styles';
+import { 
+		BUTTON_STYLE_PRI, 
+		BUTTON_STYLE_SEC, 
+		BUTTON_STYLE_PRI_ASYNC, 
+		FONT_STYLE 
+	    } from '../styles/styles';
 
-import { add, addAsync, minus } from '../actions/calculatorActions';
+import { add, addAsync, addSaga, minus, addSagaAsync } from '../actions/calculatorActions';
 
 const switchRender = props => {
 	switch(props.method){
@@ -19,6 +24,20 @@ const switchRender = props => {
 		  	BUTTON_STYLE: BUTTON_STYLE_PRI_ASYNC,
 		  	clickHandler(){
 		  		props.addAsync()
+		  	}
+		  }
+		case 'addSaga':
+		  return {
+		  	BUTTON_STYLE: BUTTON_STYLE_PRI,
+		  	clickHandler(){
+		  		props.addSaga()
+		  	}
+		  }
+		case 'addSagaAsync':
+		  return {
+		  	BUTTON_STYLE: BUTTON_STYLE_PRI_ASYNC,
+		  	clickHandler(){
+		  		props.addSagaAsync()
 		  	}
 		  }
 		case 'minus':
@@ -49,6 +68,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
 	add,
 	addAsync,
+	addSaga,
+	addSagaAsync,
 	minus
 }
 

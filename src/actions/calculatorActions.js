@@ -12,6 +12,14 @@ const addAsync = () => dispatch => {
 	}).then(action => dispatch(action))
 }
 
+const addSaga = () => ({
+	type: "ADD_SAGA"
+})
+
+const addSagaAsync = () => ({
+	type: "ADD_SAGA_ASYNC"
+})
+
 const minus = () => ({
 	type: "MINUS"
 })
@@ -19,5 +27,7 @@ const minus = () => ({
 export {
 	add,
 	addAsync,
+	addSaga,
+	addSagaAsync,
 	minus
 }
